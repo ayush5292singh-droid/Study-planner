@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080d1b">
+  <meta name="description" content="STUDYX — your personal study planning, revision and learning system.">
+  <title>STUDYX — Advanced Study OS</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <!-- ONBOARDING -->
+  <main id="onboarding" class="onboarding">
+    <div class="onboard-brand">
+      <div class="brand-mark">S<span>✦</span></div>
+      <span>STUDY<span class="accent">X</span></span>
+    </div>
+
+    <div class="onboard-progress">
+      <span id="step-label">STEP 01 OF 04</span>
+      <div class="progress-track"><div id="onboard-progress-fill"></div></div>
+    </div>
+
+    <section class="onboard-screen active" data-step="0">
+      <div class="hero-orb">✦</div>
+      <p class="eyebrow">YOUR PERSONAL STUDY OS</p>
+      <h1>Make every<br>study session <span class="gradient-text">count.</span></h1>
+      <p class="muted lead">Plan smarter. Learn deeper. Achieve more.</p>
+      <button class="primary-btn wide" data-next>Get started <span>→</span></button>
+      <p class="tiny center">Your learning journey starts here.</p>
+    </section>
+
+    <section class="onboard-screen" data-step="1">
+      <p class="eyebrow">LET'S PERSONALIZE YOUR EXPERIENCE</p>
+      <h1>First, tell us<br><span class="gradient-text">about you.</span></h1>
+      <form id="profile-form" class="form-stack">
+        <label for="profile-name">Your name</label>
+        <input id="profile-name" name="name" maxlength="60" placeholder="What should we call you?" required>
+        <label for="profile-age">Your age</label>
+        <input id="profile-age" name="age" type="number" min="5" max="100" placeholder="Enter your age" required>
+        <label for="profile-class">Class / education level</label>
+        <input id="profile-class" name="schoolClass" maxlength="50" placeholder="e.g. Class 8">
+        <label for="profile-board">School board / curriculum</label>
+        <input id="profile-board" name="board" maxlength="60" placeholder="e.g. ICSE">
+        <label for="profile-goal">Main learning goal</label>
+        <select id="profile-goal" name="goal">
+          <option value="Better school results">Better school results</option>
+          <option value="Competitive exams">Competitive exam preparation</option>
+          <option value="Build consistent habits">Build consistent study habits</option>
+          <option value="Learn new skills">Learn new skills</option>
+        </select>
+        <button class="primary-btn wide" type="submit">Continue <span>→</span></button>
+      </form>
+    </section>
+
+    <section class="onboard-screen" data-step="2">
+      <div class="hero-orb">◎</div>
+      <p class="eyebrow">MEET YOUR NEW STUDY COMPANION</p>
+      <h1>Welcome to<br><span class="gradient-text">STUDYX.</span></h1>
+      <p class="muted lead">One organized place for your entire learning journey.</p>
+      <div class="feature-mini-grid">
+        <div class="mini-feature"><span>◷</span><b>Plan</b><small>Build your routine</small></div>
+        <div class="mini-feature"><span>✦</span><b>Practice</b><small>Quizzes & cards</small></div>
+        <div class="mini-feature"><span>↗</span><b>Improve</b><small>Track progress</small></div>
+        <div class="mini-feature"><span>◎</span><b>Focus</b><small>Study with purpose</small></div>
+      </div>
+      <button class="primary-btn wide" data-next>Explore features <span>→</span></button>
+    </section>
+
+    <section class="onboard-screen" data-step="3">
+      <p class="eyebrow">BUILT FOR YOUR PROGRESS</p>
+      <h1>Everything you need.<br><span class="gradient-text">One workspace.</span></h1>
+      <div class="onboard-feature-list">
+        <div><span>01</span><section><b>Plan your day</b><small>Timetable, homework and goals</small></section><i>✓</i></div>
+        <div><span>02</span><section><b>Practice actively</b><small>Quiz studio and flashcards</small></section><i>✓</i></div>
+        <div><span>03</span><section><b>Prepare for exams</b><small>Syllabus and revision engine</small></section><i>✓</i></div>
+        <div><span>04</span><section><b>Measure your growth</b><small>Analytics and achievements</small></section><i>✓</i></div>
+      </div>
+      <button id="launch-app" class="primary-btn wide">Open my Study OS <span>↗</span></button>
+      <p class="tiny center">Your workspace. Your goals. Your progress.</p>
+    </section>
+  </main>
+
+  <!-- MAIN APPLICATION -->
+  <div id="app" class="app-shell hidden">
+    <aside id="sidebar" class="sidebar">
+      <a class="brand" href="#" data-page="dashboard">
+        <div class="brand-mark">S<span>✦</span></div>
+        <span>STUDY<span class="accent">X</span><small>YOUR STUDY OS</small></span>
+      </a>
+
+      <div class="sidebar-label">WORKSPACE</div>
+      <nav id="main-nav" class="main-nav">
+        <button class="nav-item active" data-page="dashboard"><span>⌂</span>Dashboard</button>
+        <button class="nav-item" data-page="timetable"><span>▦</span>Timetable</button>
+        <button class="nav-item" data-page="homework"><span>☑</span>Homework</button>
+        <button class="nav-item" data-page="syllabus"><span>▤</span>Syllabus tracker</button>
+        <button class="nav-item" data-page="exams"><span>◷</span>Exam centre</button>
+        <button class="nav-item" data-page="quizzes"><span>✦</span>Quiz studio</button>
+        <button class="nav-item" data-page="flashcards"><span>▱</span>Flashcards</button>
+        <button class="nav-item" data-page="revision"><span>↻</span>Revision engine</button>
+        <button class="nav-item" data-page="focus"><span>◉</span>Focus room</button>
+        <button class="nav-item" data-page="notes"><span>▧</span>Notes & resources</button>
+        <button class="nav-item" data-page="goals"><span>◎</span>Goals & challenges</button>
+        <button class="nav-item" data-page="analytics"><span>↗</span>Analytics</button>
+        <button class="nav-item" data-page="achievements"><span>♜</span>Achievements</button>
+        <button class="nav-item" data-page="reminders"><span>♧</span>Reminders</button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="sidebar-tip"><span>✧</span><b>Small steps. Big progress.</b><small>Your next session is a new opportunity.</small></div>
+        <button class="nav-item" data-page="settings"><span>⚙</span>Settings & backup</button>
+        <button id="sidebar-profile" class="profile-mini" data-page="settings">
+          <div class="avatar" id="sidebar-avatar">S</div>
+          <span><b id="sidebar-name">Student</b><small id="sidebar-class">My workspace</small></span>
+          <span class="profile-dots">•••</span>
+        </button>
+      </div>
+    </aside>
+
+    <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+    <div class="main-column">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button id="menu-toggle" class="icon-btn menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+          <div><span class="topbar-caption">YOUR PERSONAL WORKSPACE</span><div id="breadcrumb" class="breadcrumb">Dashboard</div></div>
+        </div>
+        <div class="topbar-actions">
+          <button class="icon-btn" data-page="reminders" aria-label="Reminders">♧</button>
+          <button class="profile-pill" data-page="settings"><span class="avatar small-avatar" id="top-avatar">S</span><span id="top-name">Student</span></button>
+        </div>
+      </header>
+
+      <main id="page-content" class="page-content" tabindex="-1"></main>
+
+      <footer class="app-footer">STUDYX <span>•</span> YOUR PERSONAL STUDY OS</footer>
+    </div>
+
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+      <button class="mobile-nav-item active" data-page="dashboard"><span>⌂</span><small>Home</small></button>
+      <button class="mobile-nav-item" data-page="timetable"><span>▦</span><small>Plan</small></button>
+      <button class="mobile-nav-item" data-page="quizzes"><span>✦</span><small>Quiz</small></button>
+      <button class="mobile-nav-item" data-page="flashcards"><span>▱</span><small>Cards</small></button>
+      <button class="mobile-nav-item" id="mobile-more" aria-label="More features"><span>☰</span><small>More</small></button>
+    </nav>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
